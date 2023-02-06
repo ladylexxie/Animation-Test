@@ -26,7 +26,7 @@ public class PlayerAnimationTrigger {
 
 
 			//Get the player from Minecraft, using the chat profile ID. From network packets, you'll receive entity IDs instead of UUIDs
-			var player = Minecraft.getInstance().level.getPlayerByUUID(event.getSender());
+			var player = Minecraft.getInstance().level.getPlayerByUUID(event.getMessageSigner().profileId());
 
 			if (player == null) return; //The player can be null because it was a system message or because it is not loaded by this player.
 
@@ -36,7 +36,7 @@ public class PlayerAnimationTrigger {
 				//You can set an animation from anywhere ON THE CLIENT
 				//Do not attempt to do this on a server, that will only fail
 
-				animation.setAnimation(new KeyframeAnimationPlayer(PlayerAnimationRegistry.getAnimation(new ResourceLocation("examplemod", "waving"))));
+				animation.setAnimation(new KeyframeAnimationPlayer(PlayerAnimationRegistry.getAnimation(new ResourceLocation(AnimationTest.MODID, "waving"))));
 				//You might use  animation.replaceAnimationWithFade(); to create fade effect instead of sudden change
 				//See javadoc for details
 			}

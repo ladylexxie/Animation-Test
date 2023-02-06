@@ -77,16 +77,14 @@ sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 repositories {
     maven {
-        url "https://cursemaven.com"
-        content {
-            includeGroup "curse.maven"
-        }
+        name "KosmX's maven"
+        url 'https://maven.kosmx.dev/'
     }
 }
 
 dependencies {
     minecraft "net.minecraftforge:forge:${mc_version}-${forge_version}"
-    implementation fg.deobf("curse.maven:playeranimator-658587:4357568")
+    implementation fg.deobf("dev.kosmx.player-anim:player-animation-lib-forge:0.4.2")
 }
 
 jar {

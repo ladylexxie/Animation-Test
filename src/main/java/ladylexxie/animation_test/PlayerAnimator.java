@@ -14,14 +14,10 @@ public class PlayerAnimator {
 
 	@SubscribeEvent
 	public static void onClientSetup( FMLClientSetupEvent event ) {
-		//Set the player construct callback. It can be a lambda function.
 		PlayerAnimationFactory.ANIMATION_DATA_FACTORY.registerFactory(new ResourceLocation(AnimationTest.MODID, "animation"), 42, PlayerAnimator::registerPlayerAnimation);
 	}
 
-	//This method will set your mods animation into the library.
 	private static IAnimation registerPlayerAnimation( AbstractClientPlayer player ) {
-		//This will be invoked for every new player
 		return new ModifierLayer<>();
 	}
-
 }
